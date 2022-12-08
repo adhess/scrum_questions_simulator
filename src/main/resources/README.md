@@ -121,7 +121,7 @@
 - [x] Specify a shared Definition of Done.
 - [ ] Ask the Scrum Master what they should do.
 ### Based on "Sprint 7 Burndown Chart" would you do anything different in Sprint 8?
-![Burndown](images/burndown.jpg)
+![Burndown](qa/images/burndown.jpg)
 - [ ] The Scrum Master adds additional Developers for Sprint 8.
 - [ ] The Developers carry over incomplete Sprint Backlog items from Sprint 7 to Sprint 8 and monitor the Sprint 8 burn-down chart. As soon as deviation from trends is detected, the Developers work with the Product Owner to negotiate remaining work.
 - [ ] There is nothing wrong The Developers will present all Product Backlog Items selected for Sprint 7 at the end of the Sprint.

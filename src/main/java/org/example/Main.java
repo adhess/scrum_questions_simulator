@@ -1,8 +1,10 @@
 package org.example;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 public class Main {
@@ -138,17 +140,20 @@ public class Main {
         }
     }
 
-    private static List<Question> parseFile() throws FileNotFoundException {
-//        File file = new File("src/main/resources/qa/README.md");
-        File file = new File("src/main/resources/qa/difficultQuestions.md");
+    private static List<Question> parseFile() throws FileNotFoundException, URISyntaxException {
+        List<String> contents = null;
+        try (InputStream inputStream = Main.class.getResourceAsStream("/README.md");
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+            contents = reader.lines().collect(Collectors.toList());
 
-        Scanner in = new Scanner(file);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         Question holder = null;
         List<Question> questions = new ArrayList<>();
 
-        while (in.hasNext()) {
-            String line = in.nextLine();
+        for (String line: contents) {
             if (line.startsWith("###")) {
                 if (holder != null) questions.add(holder);
                 holder = new Question(line.substring(4).trim());
